@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="”robots”" content="”noindex”" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+
+    <!-- Optional theme -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous"
+    />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Digital Document of Covid-19 Vaccination Certificate</title>
+    <link
+      rel="shortcut icon"
+      href="https://vaccine.mohp.gov.np/fab/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="icon"
+      href="https://vaccine.mohp.gov.np/fab/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <style>
+    body,
+    html,
+    hr {
+      padding: 0;
+      margin: 0;
+      position: relative;
+    }
+
+    hr {
+      padding-bottom: 10px;
+    }
+
+    .Header {
+      padding: 0.5rem 0.5rem;
+      margin: 1em 0em;
+      background-color: #81b7e5 !important;
+    }
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+      }
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-direction: row-reverse;
+
+      justify-content: space-between;
+    }
+    .main-content {
+      width: 100%;
+      max-width: 600px;
+    }
+    .watermark-image {
+      max-width: 380px;
+      object-fit: contain;
+    }
+    .logo {
+      position: absolute;
+    }
+
+    .watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.1;
+    }
+
+    .certificate {
+      width: 50%;
+      margin: 0 auto;
+      background-color: #2a632c !important;
+      padding: 1em;
+    }
+    .certificate > p {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      font-size: 20px;
+      color: #fff !important;
+      font-weight: bolder;
+    }
+    .detail-info {
+      padding-left: 1em;
+      padding-top: 2em;
+    }
+    .page {
+      border: 0.5em solid #405aa5;
+    }
+    .qr {
+      text-align: right;
+      padding-top: 0;
+      padding-right: 1em;
+      padding-bottom: 1em;
+    }
+
+    .text {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: medium;
+      font-weight: bold;
+    }
+
+    .text > hr {
+      border-color: white;
+      border-width: thick;
+    }
+    .footer {
+      padding: 1.5rem 0 1.5rem;
+    }
+    .footer-hr {
+      border-color: #345696;
+      border-width: thick;
+    }
+    hr {
+      padding: 0;
+    }
+    .main-text {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: medium;
+      font-weight: bold;
+      text-align: center;
+      margin: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .logo img {
+        margin: 0 auto;
+      }
+      .certificate {
+        width: 100% !important;
+      }
+      .watermark-image {
+        max-width: 280px !important;
+        object-fit: contain;
+      }
+      .text p {
+        font-size: 14px;
+      }
+      .text {
+        margin: 13px;
+        margin: 0 auto;
+      }
+      .Header {
+        padding: 10px;
+      }
+      .certificate > p {
+        font-size: 14px !important;
+      }
+      .registration {
+        margin: 20px auto;
+        width: 100% !important;
+      }
+      .note {
+        font-size: 14px;
+      }
+      .registration-content {
+        padding: 0px !important;
+      }
+    }
+    .registration-content {
+      padding: 30px;
+    }
+    .main-container {
+      padding-bottom: 10%;
+    }
+    .registration {
+      margin: 20px auto;
+      width: 50%;
+    }
+  </style>
+  <style>
+    .qrimage {
+      text-align: right;
+      margin-right: 10px; /* Optional: add some right margin if needed */
+    }
+  </style>
+  <body oncontextmenu="return false">
+    <div class="container p-0">
+      <div class="print">
+        <button class="btn btn-sm btn-primary hide-on-print" id="print">
+          <i class="fas fa-print"></i>Print Certificate
+        </button>
+      </div>
+    </div>
+    <div class="container page">
+      <div class="row Header">
+        <div class="logo">
+          <img
+            width="120"
+            height="80"
+            class="img-responsive"
+            src="https://vaccine.mohp.gov.np/images/gov_logo.png"
+            alt=""
+          />
+        </div>
+        <div class="main-text">
+          <p>Federal Democratic Republic of Nepal</p>
+          <p class="mb-0">Ministry of Health and Population</p>
+          <p class="mb-0">(MoHP)</p>
+        </div>
+      </div>
+      <div class="certificate">
+        <p>COVID-19 Vaccination Certificate</p>
+      </div>
+      <div class="content-wrapper">
+        <div class="profile">
+          <img id="rotater" onclick="rotate(this)" src="./image.jpg" alt="" />
+        </div>
+
+        <div class="main-content">
+          <div class="watermark">
+            <img
+              class="img-responsive watermark-image"
+              src="https://vaccine.mohp.gov.np/images/gov_logo.png"
+              alt=""
+            />
+          </div>
+          <div class="detail-info">
+            <div class="item">
+              <div class="item-detail">
+                <p><b>Full Name:</b></p>
+              </div>
+              <div class="item-detail">
+                <p>SANTOSH THAPA</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="item-detail">
+                <p><b>Address:</b></p>
+              </div>
+              <div class="item-detail">
+                <p>GULMI</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="item-detail">
+                <p><b>Nationality:</b></p>
+              </div>
+              <div class="item-detail">
+                <p>Nepal</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="item-detail">
+                <p><b>Date of Birth (DOB):</b></p>
+              </div>
+              <div class="item-detail">
+                <p>2002-05-01</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="item-detail">
+                <p><b>Passport No. :</b></p>
+              </div>
+              <div class="item-detail">
+                <p>12283056</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="item-detail mb-0">
+                <p><b>Registration ID:</b></p>
+              </div>
+              <div class="item-detail mb-0">
+                <p>4098-240616-51155T</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="container">
+          <div class="item">
+            <div class="item-detail">
+              <h4>Vaccination Details:</h4>
+            </div>
+          </div>
+          <div class="item" style="max-width: 800px">
+            <div class="item-detail" style="width: 100%">
+              <div class="row">
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="w-35" scope="col">Name of Vaccine</th>
+                      <th scope="col">Dose</th>
+                      <th scope="col">Vaccination Date</th>
+                      <th scope="col">Batch No.</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row" data-label="Name of Vaccine:">
+                        Janssen (Johnson & Johnson)
+                      </td>
+                      <td data-label="Dose:">1<sup>st</sup></td>
+                      <td data-label="Vaccination Date:">18 Apr, 2023</td>
+                      <td data-label="Batch No.:">211H21A</td>
+                    </tr>
+                    <tr>
+                      <td scope="row" data-label="Name of Vaccine:">
+                        Janssen (Johnson & Johnson)
+                      </td>
+                      <td data-label="Dose:">Additional</td>
+                      <td data-label="Vaccination Date:">13 Apr, 2024</td>
+                      <td data-label="Batch No.:">211H21A</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- qr div here -->
+        <div class="qrimage">
+          <img src="./qrcode.jpg" alt="qr" height="128" width="128" />
+        </div>
+      </div>
+      <hr class="footer-hr" />
+      <div class="footer">
+        <i
+          >This certificate was generated electronically by the Ministry of
+          Health and Population of Federal Democratic Republic of Nepal. And
+          does not require a stamp or signature.<br />
+          Any unauthorized manipulation of the document will be subject to legal
+          action as per laws of the Federal Democratic Republic of Nepal.</i
+        >
+      </div>
+    </div>
+  </body>
+  <script>
+    document.getElementById("print").addEventListener("click", function () {
+      window.print();
+    });
+
+    document.onkeydown = function (e) {
+      if (event.keyCode == 123) {
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
+        return false;
+      }
+      if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
+        return false;
+      }
+    };
+  </script>
+  <style>
+    .w-35 {
+      width: 35%;
+    }
+    .row {
+      padding: 0 15px;
+    }
+    /* table {
+        border-collapse: collapse;
+        overflow: hidden;
+        width: 100%;
+        } */
+    span {
+      font-size: 35px;
+      font-weight: bold;
+      word-break: normal;
+    }
+
+    caption {
+      text-align: right;
+    }
+    th {
+      color: white;
+      text-align: center;
+      /* border: 1px solid #ffffff ; */
+      padding: 1rem 0.8rem;
+    }
+    th:nth-child(1) {
+      background-color: #2561ba;
+
+      align-content: center;
+    }
+    th:nth-child(2) {
+      background-color: #3368b8;
+
+      align-content: center;
+    }
+    th:nth-child(3) {
+      background-color: #4070b8;
+      align-content: center;
+    }
+    th:nth-child(4) {
+      background-color: #4e78b8;
+      align-content: center;
+    }
+    th:nth-child(5) {
+      background-color: #7887ab;
+      align-content: center;
+    }
+    tr:nth-child(2n) {
+      background: #ececec;
+    }
+    tr:nth-child(2n-1) {
+      background: #dbdbdb;
+    }
+    td:nth-child(2n) {
+      background: lightgray;
+    }
+    tr:nth-child(odd) td:nth-child(even) {
+      background: #e7e7e7;
+    }
+    tr:nth-child(even) td:nth-child(even) {
+      background: #f3f3f3;
+    }
+
+    .print {
+      margin: 10px 0;
+    }
+    .item {
+      display: flex;
+      max-width: 550px;
+      justify-content: space-between;
+    }
+    .item-detail {
+      float: left;
+      width: 50%;
+      margin-bottom: 1rem;
+    }
+    .item-detail p {
+      font-size: 1.5rem;
+    }
+    .profile {
+      margin-top: 32px;
+    }
+    .content-wrapper {
+    }
+    .profile {
+      float: right;
+    }
+    .profile img {
+      width: 140px;
+      border: 2px solid #405aa5;
+      height: 120px;
+    }
+    .mb-0 {
+      margin-bottom: 0px;
+    }
+    .p-0 {
+      padding: 0 !important;
+    }
+    #rotater {
+      transition: all 0.3s ease;
+    }
+
+    @media print {
+      th {
+        color: white !important;
+      }
+      .hide-on-print {
+        display: none;
+      }
+      th:nth-child(1) {
+        background-color: #2561ba !important;
+      }
+      th:nth-child(2) {
+        background-color: #3368b8 !important;
+      }
+      th:nth-child(3) {
+        background-color: #4070b8 !important;
+      }
+      th:nth-child(4) {
+        background-color: #4e78b8 !important;
+      }
+      th:nth-child(5) {
+        background-color: #7887ab !important;
+      }
+      tr:nth-child(2n) {
+        background: #ececec !important;
+      }
+      tr:nth-child(2n-1) {
+        background: #dbdbdb !important;
+      }
+      td:nth-child(2n) {
+        background: lightgray !important;
+      }
+      tr:nth-child(odd) td:nth-child(even) {
+        background: #e7e7e7 !important;
+      }
+      tr:nth-child(even) td:nth-child(even) {
+        background: #f3f3f3 !important;
+      }
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    table caption {
+      font-size: 1.5em;
+      margin: 0.5em 0 0.75em;
+    }
+
+    table tr {
+      background-color: #f8f8f8;
+      padding: 0.35em;
+    }
+
+    table td {
+      padding: 0.825em;
+      text-align: center;
+    }
+
+    table th {
+      font-size: 0.85em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 600px) {
+      table {
+        border: 0;
+      }
+
+      table caption {
+        font-size: 1.3em;
+      }
+
+      table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+      }
+
+      table tr {
+        display: block;
+        margin-bottom: 0.625em;
+      }
+
+      table td {
+        display: block;
+        font-size: 1em;
+        text-align: right;
+      }
+
+      table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      table td:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .registration {
+        margin: 20px auto;
+        width: 80% !important;
+      }
+      .note {
+        font-size: 14px;
+      }
+    }
+  </style>
+</html>
